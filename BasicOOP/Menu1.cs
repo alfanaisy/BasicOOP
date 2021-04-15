@@ -15,7 +15,6 @@ namespace BasicOOP
 
         public float HitungBMI()
         {
-            
             height /= 100;
             float result = (float)(weight / Math.Pow(height, 2));
             return result;

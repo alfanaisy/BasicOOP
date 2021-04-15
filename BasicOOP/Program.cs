@@ -33,45 +33,60 @@ namespace BasicOOP
                     switch (menu)
                     {
                         case 1:
-                            Console.WriteLine("Input weight: ");
-                            menu1.Weight = Convert.ToInt32(Console.ReadLine());
-                            Console.WriteLine("Input height: ");
-                            menu1.Height = Convert.ToInt32(Console.ReadLine());
-                            float bmi = menu1.HitungBMI();
-                            if (bmi < 18.1)
+                            try
                             {
-                                Console.WriteLine("BMI : " + bmi.ToString("F2") + ". You're Underweight");
+                                Console.WriteLine("Input weight(kg): ");
+                                menu1.Weight = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine("Input height(m): ");
+                                menu1.Height = Convert.ToInt32(Console.ReadLine());
+                                float bmi = menu1.HitungBMI();
+                                if (bmi < 18.1)
+                                {
+                                    Console.WriteLine("BMI : " + bmi.ToString("F2") + ". You're Underweight");
+                                }
+                                else if (bmi < 23.1)
+                                {
+                                    Console.WriteLine("BMI : " + bmi.ToString("F2") + ". You're Normal");
+                                }
+                                else if (bmi < 28.1)
+                                {
+                                    Console.WriteLine("BMI : " + bmi.ToString("F2") + ". You're Overweight");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("BMI : " + bmi.ToString("F2") + ". You're Obese");
+                                }
                             }
-                            else if (bmi < 23.1)
+                            catch (Exception)
                             {
-                                Console.WriteLine("BMI : " + bmi.ToString("F2") + ". You're Normal");
-                            }
-                            else if (bmi < 28.1)
-                            {
-                                Console.WriteLine("BMI : " + bmi.ToString("F2") + ". You're Overweight");
-                            }
-                            else
-                            {
-                                Console.WriteLine("BMI : " + bmi.ToString("F2") + ". You're Obese");
+                                Console.WriteLine("Please input a number only!");
                             }
                             break;
                         case 2:
                             Console.WriteLine("Input name : ");
-                            menu2.Name = Console.ReadLine();
+                            menu2.Name = Console.ReadLine().Replace(" ", "");
                             menu2.reprintName();
                             break;
                         case 3:
                             Console.WriteLine("Input name : ");
-                            menu3.Name = Console.ReadLine();
+                            menu3.Name = Console.ReadLine().Replace(" ", "");
                             menu3.getEvenChar();
                             break;
                         case 4:
-                            Console.WriteLine("Input length : ");
-                            menu4.ArrLength = Convert.ToInt32(Console.ReadLine());
-                            Console.WriteLine("sum : "+ menu4.sumArray());
+                            try
+                            {
+                                Console.WriteLine("Input length : ");
+                                menu4.ArrLength = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine("sum : " + menu4.sumArray());
+                            }
+                            catch (Exception)
+                            {
+                                Console.WriteLine("Please input a number only!");
+                            }
                             break;
 
                         default:
+                            Console.WriteLine("Please input number 1 - 4 only");
                             break;
                     }
                 }
